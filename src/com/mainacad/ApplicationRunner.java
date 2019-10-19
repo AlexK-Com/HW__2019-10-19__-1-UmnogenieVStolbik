@@ -20,15 +20,10 @@ public class ApplicationRunner {
         multiply.setMult1(multiply1);
         multiply.setMult2(multiply2);
 
-
-
-
-
-        LOGGER.severe("Input: 1 * 2 " + multiply.getMultiply());
-
-
-
-
+        LOGGER.severe(System.getProperty("line.separator") +
+                            "Multiply result: " +
+                            System.getProperty("line.separator") +
+                            multiply.getMultiply());
     }
 
 }
