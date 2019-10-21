@@ -43,22 +43,23 @@ public class Multiply{
         int multTempResultLength;
 
 // вывод данных между подчеркиваниями
-        for (int i = 0; i < mult2Length; i++) {
-            multTemp = mult2 % 10;
-            mult2 = mult2 / 10;
-            multTemp = multTemp * mult1;
-            multTempResultLength = (int) Math.log10(multTemp) + 1;
-            for (int j = 0; j < multResultLength - multTempResultLength - i; j++) {
-                stringBuilder.append(" ");
+        if (mult2 > 9) {  // если второе число состоит из одного символа, то данных между подчеркиваниями не будет
+            for (int i = 0; i < mult2Length; i++) {
+                multTemp = mult2 % 10;
+                mult2 = mult2 / 10;
+                multTemp = multTemp * mult1;
+                multTempResultLength = (int) Math.log10(multTemp) + 1;
+                for (int j = 0; j < multResultLength - multTempResultLength - i; j++) {
+                    stringBuilder.append(" ");
+                }
+                stringBuilder.append(multTemp + System.getProperty("line.separator"));
             }
-            stringBuilder.append(multTemp + System.getProperty("line.separator"));
-        }
-        for (int i = 0; i < multResultLength; i++) {
-            stringBuilder.append("—");
-        }
-        stringBuilder.append(System.getProperty("line.separator"));
+            for (int i = 0; i < multResultLength; i++) {
+                stringBuilder.append("—");
+            }
+            stringBuilder.append(System.getProperty("line.separator"));
 // конец --- вывод данных между подчеркиваниями
-
+        }
         stringBuilder.append(strMultResult);
         stringBuilder.append(System.getProperty("line.separator"));
         return stringBuilder.toString();
